@@ -1,0 +1,36 @@
+.header{
+    height:50px;
+    padding: 10px 130px;
+    /* margin: 0 100px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.274);
+}
+.header p{
+    float:right;
+}
+.logo,.cartImg{
+    height: 60px;
+}
+a{
+    text-decoration:none;
+}
+.logo{
+    float: left;
+}
+.cartImg{
+    float: right;
+}
+.cart-badge{
+    margin-top: 0px;
+    float: right;
+    text-align: right;
+}
+.cart-badge p{
+    margin-top: 13px;
+}
+
+@media only screen and (max-width: 480px) {
+  .header{
+    height:60px;
+    padding: 30px 10px;
+}
+}

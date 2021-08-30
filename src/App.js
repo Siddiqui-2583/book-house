@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import BookTable from './Components/BookTable/BookTable';
+import InputForm from './Components/InputForm/InputForm';
+import EditForm from "./Components/EditForm/EditForm";
+import Header from './Components/Header/Header';
 function App() {
+  const [clickedBook, setClickedBook] = useState({})
+  const [data, setData] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Header />
+        <br />
+        <Switch>
+          <Route exact path="/">
+            <BookTable
+              data={data}
+              setData={setData}
+              setClickedBook={setClickedBook}
+            />
+          </Route>
+          <Route path="/add-book">
+            <InputForm />
+          </Route>
+          <Route path="/edit-book">
+            <EditForm clickedBook={clickedBook} data={data} setData={setData} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
